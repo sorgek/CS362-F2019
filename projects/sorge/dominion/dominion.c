@@ -861,7 +861,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case baron:
 
-        return baronCard(choice1, state, currentPlayer);
+        baronCard(choice1, state, currentPlayer);
+
+        return 0;
 
     case great_hall:
         //+1 Card
@@ -1357,7 +1359,7 @@ int minionCard(int currentPlayer, int choiceGold, int choiceDiscard, struct game
 
 int baronCard(int choice1, struct gameState *state, int currentPlayer){
 
-	//state->numBuys++;//Increase buys by 1!
+	state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
 		int p = 0;//Iterator for hand!
 		int card_not_discarded = 1;//Flag for discard set!
