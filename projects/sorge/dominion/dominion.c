@@ -362,7 +362,10 @@ int endTurn(struct gameState *state) {
     state->handCount[currentPlayer] = 0;//Reset hand count
 
     //Code for determining the player
-    if (currentPlayer < (state->numPlayers - 1)) {
+    if (state->outpostPlayed == 1 && state->outpostTurn ==1){
+		state->outpostTurn = 0;
+		//don't change whoseTurn
+	}else if(currentPlayer < (state->numPlayers - 1)) {
         state->whoseTurn = currentPlayer + 1;//Still safe to increment
     }
     else {
@@ -858,9 +861,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case baron:
 
-        baronCard(choice1, state, currentPlayer);
-
-        return 0;
+        return baronCard(choice1, state, currentPlayer);
 
     case great_hall:
         //+1 Card
@@ -1356,7 +1357,7 @@ int minionCard(int currentPlayer, int choiceGold, int choiceDiscard, struct game
 
 int baronCard(int choice1, struct gameState *state, int currentPlayer){
 
-	state->numBuys++;//Increase buys by 1!
+	//state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
 		int p = 0;//Iterator for hand!
 		int card_not_discarded = 1;//Flag for discard set!
@@ -1381,9 +1382,9 @@ int baronCard(int choice1, struct gameState *state, int currentPlayer){
 					gainCard(estate, state, 0, currentPlayer);
 
 					state->supplyCount[estate]--;//Decrement estates
-//                    if (supplyCount(estate, state) == 0) {
-//                        isGameOver(state);
-//                    }
+                    if (supplyCount(estate, state) == 0) {
+                        isGameOver(state);
+                    }
 				}
 				card_not_discarded = 0;//Exit the loop
 			}
