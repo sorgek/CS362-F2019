@@ -1,0 +1,172 @@
+        -:    0:Source:testme.c
+        -:    0:Graph:testme.gcno
+        -:    0:Data:testme.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:#include<stdlib.h>
+        -:    4:#include<time.h>
+        -:    5:
+        -:    6:
+        -:    7:char arrStr[5] = {'r', 's', 't', 'e', '\0'};
+        -:    8:char arrChar[9] = {'[', '(', '{', ' ', 'a', 'x', '}', ')', ']'};
+        -:    9:
+function inputChar called 9834952 returned 100% blocks executed 100%
+  9834952:   10:char inputChar() {
+        -:   11:
+        -:   12:	char i;
+        -:   13:
+  9834952:   14:	int fromArray = rand() % 3;
+call    0 returned 9834952
+  9834952:   15:	if(fromArray==2){
+branch  0 taken 3280132 (fallthrough)
+branch  1 taken 6554820
+  3280132:   16:		int index = rand() % 9;
+call    0 returned 3280132
+  3280132:   17:		i = arrChar[index];
+        -:   18:	}else {
+  6554820:   19:		i = rand() % 176;
+call    0 returned 6554820
+        -:   20:	}
+        -:   21:
+  9834952:   22:    return i;
+        -:   23:}
+        -:   24:
+        -:   25:
+function inputString called 9834952 returned 100% blocks executed 100%
+  9834952:   26:char *inputString()
+        -:   27:{
+  9834952:   28:  char* st = (char*) malloc(sizeof(char)*6);
+        -:   29:	int fromArray;
+        -:   30:
+ 68844664:   31:	for(int i = 0; i <6; i++){
+branch  0 taken 59009712
+branch  1 taken 9834952 (fallthrough)
+        -:   32:
+ 59009712:   33:		fromArray = rand() % 3;
+call    0 returned 59009712
+ 59009712:   34:		if(fromArray==2){
+branch  0 taken 19670695 (fallthrough)
+branch  1 taken 39339017
+ 19670695:   35:			int index = rand() % 5;
+call    0 returned 19670695
+ 19670695:   36:			st[i] = arrStr[index];
+        -:   37:		}else {
+ 39339017:   38:			st[0] = rand() % (117);
+call    0 returned 39339017
+        -:   39:		}
+        -:   40:    }
+  9834952:   41:    return st;
+        -:   42:}
+        -:   43:
+function testme called 2 returned 0% blocks executed 100%
+        2:   44:void testme()
+        -:   45:{
+        2:   46:	int tcCount = 0;
+        -:   47:	char *s;
+        -:   48:	char c;
+        2:   49:	int state = 0;
+        -:   50:	while (1)
+        -:   51:	{
+  9834952:   52:		tcCount++;
+  9834952:   53:		c = inputChar();
+call    0 returned 9834952
+  9834952:   54:		s = inputString();
+call    0 returned 9834952
+  9834952:   55:		printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
+call    0 returned 9834952
+        -:   56:
+  9834952:   57:		if (c == '[' && state == 0) state = 1;
+branch  0 taken 401712 (fallthrough)
+branch  1 taken 9433240
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401710
+  9834952:   58:		if (c == '(' && state == 1) state = 2;
+branch  0 taken 401635 (fallthrough)
+branch  1 taken 9433317
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401633
+  9834952:   59:		if (c == '{' && state == 2) state = 3;
+branch  0 taken 401297 (fallthrough)
+branch  1 taken 9433655
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401295
+  9834952:   60:		if (c == ' '&& state == 3) state = 4;
+branch  0 taken 402493 (fallthrough)
+branch  1 taken 9432459
+branch  2 taken 2 (fallthrough)
+branch  3 taken 402491
+  9834952:   61:		if (c == 'a' && state == 4) state = 5;
+branch  0 taken 401477 (fallthrough)
+branch  1 taken 9433475
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401475
+  9834952:   62:		if (c == 'x' && state == 5) state = 6;
+branch  0 taken 403021 (fallthrough)
+branch  1 taken 9431931
+branch  2 taken 2 (fallthrough)
+branch  3 taken 403019
+  9834952:   63:		if (c == '}' && state == 6) state = 7;
+branch  0 taken 401657 (fallthrough)
+branch  1 taken 9433295
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401655
+  9834952:   64:		if (c == ')' && state == 7) state = 8;
+branch  0 taken 400298 (fallthrough)
+branch  1 taken 9434654
+branch  2 taken 2 (fallthrough)
+branch  3 taken 400296
+  9834952:   65:		if (c == ']' && state == 8) state = 9;
+branch  0 taken 401731 (fallthrough)
+branch  1 taken 9433221
+branch  2 taken 2 (fallthrough)
+branch  3 taken 401729
+  9834952:   66:		if (s[0] == 'r' && s[1] == 'e'
+branch  0 taken 86536 (fallthrough)
+branch  1 taken 9748416
+branch  2 taken 5944 (fallthrough)
+branch  3 taken 80592
+     5944:   67:			&& s[2] == 's' && s[3] == 'e'
+branch  0 taken 473 (fallthrough)
+branch  1 taken 5471
+branch  2 taken 43 (fallthrough)
+branch  3 taken 430
+       43:   68:			&& s[4] == 't' && s[5] == '\0'
+branch  0 taken 9 (fallthrough)
+branch  1 taken 34
+branch  2 taken 2 (fallthrough)
+branch  3 taken 7
+        2:   69:			&& state == 9)
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        -:   70:		{
+        2:   71:			printf("error ");
+call    0 returned 2
+        2:   72:			free(s);
+        2:   73:			exit(200);
+call    0 returned 0
+        -:   74:		}
+        -:   75:
+  9834950:   76:		free(s);
+  9834950:   77:	}
+        -:   78:}
+        -:   79:
+        -:   80:
+        -:   81:
+function main called 2 returned 0% blocks executed 71%
+        2:   82:int main(int argc, char *argv[])
+        -:   83:{
+        2:   84:  printf("Starting\n");
+call    0 returned 2
+        -:   85:
+        2:   86:  srand(time(NULL));
+call    0 returned 2
+call    1 returned 2
+        2:   87:	testme();
+call    0 returned 0
+        -:   88:
+    #####:   89:  printf("Donezo\n");
+call    0 never executed
+    #####:   90:    return 0;
+        -:   91:}
