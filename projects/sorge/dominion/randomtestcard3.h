@@ -1,0 +1,8 @@
+//
+// Created by sal on 11/17/19.
+//
+
+#ifndef DOMINION_RANDOMTESTCARD1_H
+#define DOMINION_RANDOMTESTCARD1_H
+
+#endif //DOMINION_RANDOMTESTCARD1_H
