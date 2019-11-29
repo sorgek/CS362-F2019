@@ -31,7 +31,7 @@ int main(){
     //assert test
     printf("Bug 7\n");
     printf("For loop in Tribute does not overrun: ");
-    if(result == 0){
+    if((testG.numActions <= G.numActions + 4) || (testG.coins <= G.coins + 4) || (numHandCards(&testG) <= numHandCards(&G) + 2)){
         printf("PASSED\n");
     }else{
         printf("FAILED\n");
