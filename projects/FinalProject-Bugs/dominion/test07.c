@@ -26,7 +26,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //call Tribute
-    int result = cardEffect(card, choice1, choice2, choice3, &testG, handPos, &bonus);
+    int result = cardEffect(card, choice1, choice2, choice3, &testG, handPos, bonus);
 
     //assert test
     printf("Bug 7\n");
