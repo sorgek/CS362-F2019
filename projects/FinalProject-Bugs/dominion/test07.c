@@ -26,12 +26,12 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //call Tribute
-    int result = cardEffect(card, choice1, choice2, choice3, &testG, handPos, bonus);
+    cardEffect(card, choice1, choice2, choice3, &testG, handPos, bonus);
 
     //assert test
     printf("Bug 7\n");
     printf("For loop in Tribute does not overrun: ");
-    if((testG.numActions <= G.numActions + 4) || (testG.coins <= G.coins + 4) || (numHandCards(&testG) <= numHandCards(&G) + 2)){
+    if((testG.numActions <= G.numActions + 4) && (testG.coins <= G.coins + 4) && (numHandCards(&testG) <= numHandCards(&G) + 2)){
         printf("PASSED\n");
     }else{
         printf("FAILED\n");
