@@ -15,7 +15,7 @@ int main(){
     int seed = 1000;
     int numPlayers = 2;
     struct gameState G, testG;
-    int choice1, choice3, choice3, handPos, bonus;
+    int choice1, choice2, choice3, handPos, bonus;
     int card = tribute;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
