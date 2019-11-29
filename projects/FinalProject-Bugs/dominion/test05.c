@@ -48,9 +48,9 @@ int main(){
         G.discard[testThisPlayer][i] = estate;
     }
 
-    //set all deck pile as province
+    //set all deck pile as estate
     for(int i = 0; i < G.deckCount[testThisPlayer]; i++){
-        G.deck[testThisPlayer][i] = province;
+        G.deck[testThisPlayer][i] = estate;
     }
 
      //set all deck pile as estate
