@@ -16,7 +16,7 @@ int main(){
     int numPlayers = 2;
     struct gameState G, testG;
     int choice1, choice3, choice3, handPos, bonus;
-    int card = 19;
+    int card = tribute;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
     //initialize gameState
