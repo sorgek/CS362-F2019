@@ -26,10 +26,6 @@ int main(){
     //set thisPlayer
     int thisPlayer = whoseTurn(&G);
 
-    printf("%d\n", G.discardCount[thisPlayer]);
-    printf("%d\n", G.deckCount[thisPlayer]);
-    printf("%d\n", G.handCount[thisPlayer]);
-
     //set all discard pile as province
     for(int i = 0; i < G.discardCount[thisPlayer]; i++){
         G.discard[thisPlayer][i] = province;
@@ -48,18 +44,18 @@ int main(){
     int testThisPlayer = whoseTurn(&testG);
 
     //set all discard pile as estate
-    for(int i = 0; i < G.discardCount[testThisPlayer]; i++){
-        G.discard[testThisPlayer][i] = estate;
+    for(int i = 0; i < testG.discardCount[testThisPlayer]; i++){
+        testG.discard[testThisPlayer][i] = estate;
     }
 
     //set all deck pile as estate
-    for(int i = 0; i < G.deckCount[testThisPlayer]; i++){
-        G.deck[testThisPlayer][i] = estate;
+    for(int i = 0; i < testG.deckCount[testThisPlayer]; i++){
+        testG.deck[testThisPlayer][i] = estate;
     }
 
      //set all deck pile as estate
-    for(int i = 0; i < G.handCount[testThisPlayer]; i++){
-        G.hand[testThisPlayer][i] = estate;
+    for(int i = 0; i < testG.handCount[testThisPlayer]; i++){
+        testG.hand[testThisPlayer][i] = estate;
     }
 
     //assert test
