@@ -26,6 +26,10 @@ int main(){
     //set thisPlayer
     int thisPlayer = whoseTurn(&G);
 
+    printf("%d\n", G.discardCount[thisPlayer]);
+    printf("%d\n", G.deckCount[thisPlayer]);
+    printf("%d\n", G.handCount[thisPlayer]);
+
     //set all discard pile as province
     for(int i = 0; i < G.discardCount[thisPlayer]; i++){
         G.discard[thisPlayer][i] = province;
