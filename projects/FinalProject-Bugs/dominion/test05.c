@@ -27,8 +27,8 @@ int main(){
     int thisPlayer = whoseTurn(&G);
 
     G.discardCount[thisPlayer] = 5;
-    G.deckCount[thisPlayer] = 10;
-    G.handCount[thisPlayer] = 15;
+    G.deckCount[thisPlayer] = 0;
+    G.handCount[thisPlayer] = 0;
 
     //set all discard pile as province
     for(int i = 0; i < G.discardCount[thisPlayer]; i++){
@@ -47,9 +47,9 @@ int main(){
 
     int testThisPlayer = whoseTurn(&testG);
 
-    testG.discardCount[testThisPlayer] = 5;
-    testG.deckCount[testThisPlayer] = 10;
-    testG.handCount[testThisPlayer] = 15;
+    testG.discardCount[testThisPlayer] = 0;
+    testG.deckCount[testThisPlayer] = 5;
+    testG.handCount[testThisPlayer] = 0;
 
     //set all discard pile as estate
     for(int i = 0; i < testG.discardCount[testThisPlayer]; i++){
@@ -58,7 +58,7 @@ int main(){
 
     //set all deck pile as estate
     for(int i = 0; i < testG.deckCount[testThisPlayer]; i++){
-        testG.deck[testThisPlayer][i] = estate;
+        testG.deck[testThisPlayer][i] = province;
     }
 
      //set all hand pile as estate
