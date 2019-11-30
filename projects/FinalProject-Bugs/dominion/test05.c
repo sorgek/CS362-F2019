@@ -26,9 +26,13 @@ int main(){
     //set thisPlayer
     int thisPlayer = whoseTurn(&G);
 
+    G.discardCount[thisPlayer] = 5;
+    G.deckCount[thisPlayer] = 10;
+    G.handCount[thisPlayer] = 0;
+
     //set all discard pile as province
     for(int i = 0; i < G.discardCount[thisPlayer]; i++){
-        G.discard[thisPlayer][i] = province;
+        G.discard[thisPlayer][i] = estate;
     }
 
     //set all deck pile as estate
@@ -36,12 +40,17 @@ int main(){
         G.deck[thisPlayer][i] = estate;
     }
 
-     //set all deck pile as estate
+    //set all hand pile as estate
     for(int i = 0; i < G.handCount[thisPlayer]; i++){
         G.hand[thisPlayer][i] = estate;
     }
 
+    /*
     int testThisPlayer = whoseTurn(&testG);
+
+    testG.discardCount[testThisPlayer] = 0;
+    testG.deckCount[testThisPlayer] = 5;
+    testG.handCount[testThisPlayer] = 0;
 
     //set all discard pile as estate
     for(int i = 0; i < testG.discardCount[testThisPlayer]; i++){
@@ -50,18 +59,18 @@ int main(){
 
     //set all deck pile as estate
     for(int i = 0; i < testG.deckCount[testThisPlayer]; i++){
-        testG.deck[testThisPlayer][i] = estate;
+        testG.deck[testThisPlayer][i] = province;
     }
 
-     //set all deck pile as estate
+     //set all hand pile as estate
     for(int i = 0; i < testG.handCount[testThisPlayer]; i++){
         testG.hand[testThisPlayer][i] = estate;
     }
-
+*/
     //assert test
     printf("Bug 5\n");
     printf("scoreFor function uses deckCount when analyzing deck cards: ");
-    if(scoreFor(thisPlayer, &G) != scoreFor(testThisPlayer, &testG)){
+    if(scoreFor(thisPlayer, &G) == 15){
         printf("PASSED\n");
     }else{
         printf("FAILED\n");
