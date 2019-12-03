@@ -14,7 +14,7 @@
 
 int main(){
     //initialize gameState
-
+    printf("Bug 8\n");
     struct gameState *state = newTestState();
     int player = state->whoseTurn;
 

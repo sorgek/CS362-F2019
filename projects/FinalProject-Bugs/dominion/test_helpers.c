@@ -35,11 +35,13 @@ int addCardToPlayersHand(struct gameState* game, int cardToAdd, int cardPos, int
         }
     }
     game->hand[player][cardPos] = cardToAdd;
+
+    return 0;
 }
 
 
 int addSingleCardToHand(struct gameState* game, int cardToAdd, int cardPos){
-    addCardToPlayersHand(game, cardToAdd, cardPos, game->whoseTurn);
+    return addCardToPlayersHand(game, cardToAdd, cardPos, game->whoseTurn);
 }
 
 
@@ -51,14 +53,17 @@ int addAllCards(struct gameState* game, int cardToAdd, int player){
         game->hand[player][i] = cardToAdd;
     }
 
+    return 0;
+
 }
 
 int safeAssert(int eval, char* testName){
 
     if(eval){
+		printf("%s: PASSED \n", testName);
 
-    } else {
-        printf("FAILED: %s \n", testName);
+	} else {
+        printf("%s: FAILED\n", testName);
     }
     return 0;
 }

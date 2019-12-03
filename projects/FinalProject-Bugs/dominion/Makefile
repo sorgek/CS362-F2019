@@ -3,6 +3,9 @@ CFLAGS= -Wall -fpic -coverage -lm -std=c99
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 
+test_helpers.o: test_helpers.h test_helpers.c dominion.o
+	gcc -c test_helpers.c -g $(CFLAGS)
+
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
 
@@ -40,17 +43,25 @@ test06: test06.c dominion.o rngs.o
 test07: test07.c dominion.o rngs.o
 	gcc -o test07 -g test07.c dominion.o rngs.o $(CFLAGS)
 
+test08: test08.c test_helpers.o dominion.o rngs.o
+	gcc -o test08 -g test08.c dominion.o rngs.o test_helpers.o $(CFLAGS)
+
+test09: test09.c test_helpers.o dominion.o rngs.o
+	gcc -o test09 -g test09.c dominion.o rngs.o test_helpers.o $(CFLAGS)
+
 #add rules for test08 - 10 here
 
-unittestresults: test04 test05 test06 test07
+unittestresults: test04 test05 test06 test07 test08 test09
 	#add ./test01 - 03 here
 	./test04 >> unittestresults.out
 	./test05 >> unittestresults.out
 	./test06 >> unittestresults.out
 	./test07 >> unittestresults.out
-	#add ./test08 - 10 here
+	./test08 >> unittestresults.out
+	./test09 >> unittestresults.out
+
 	gcov -b -f dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe test04 test05 test06 test07
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe test04 test05 test06 test07 test08 test09 test10
