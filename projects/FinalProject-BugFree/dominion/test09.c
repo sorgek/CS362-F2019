@@ -18,9 +18,8 @@ int main(){
 
     struct gameState *state = newTestState();
     int player2 = state->whoseTurn + 1;
-	//Add two smithies to opposing players hand
 
-
+	//Add two smithies to opposing players deck
 	state->deck[player2][state->deckCount[player2]-1] = smithy;
 	state->deck[player2][state->deckCount[player2]-2] = smithy;
     state->numActions = 0;
