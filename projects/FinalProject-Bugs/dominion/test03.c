@@ -33,10 +33,10 @@ int main() {
 	// Assert that one of the cards in the discardCard pile is a silver.
 	
 
-	if (assert(G.discard[0][0]) == gold) {
+	if (G.discard[0][0] == gold) {
 		printf("Passed\n");
 	}
-	else if (assert(G.discard[0][1] == gold)) {
+	else if (G.discard[0][1] == gold) {
 		printf("Passed\n");
 	}
 	else {
