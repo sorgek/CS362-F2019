@@ -22,9 +22,10 @@ int main(){
 	//Set up hand with ambassador and 2 coppers
     addAllCards(state, estate, player);
     addSingleCardToHand(state, ambassador, 0);
-    addSingleCardToHand(state, copper, 2);
     addSingleCardToHand(state, copper, 1);
+    addSingleCardToHand(state, copper, 2);
 
+    //call ambassador to discard 2 coppers with the first at pos 1
     cardEffect(ambassador, 1, 2, 0, state, 0, 0);
     safeAssert(state->numActions == 2, "Ambassador card returns 0 when called with 2 cards.");
     return 0;

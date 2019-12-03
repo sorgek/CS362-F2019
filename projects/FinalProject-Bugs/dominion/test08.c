@@ -19,6 +19,7 @@ int main(){
     int player = state->whoseTurn;
 
 	//Add minion card to hand pos 0
+    addAllCards(state, estate, player);
     addCardToPlayersHand(state, minion, 0, player);
     state->coins = 0;
 

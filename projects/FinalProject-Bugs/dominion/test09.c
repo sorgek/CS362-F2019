@@ -17,12 +17,11 @@ int main(){
     printf("Bug 9\n");
 
     struct gameState *state = newTestState();
-    int player = state->whoseTurn;
     int player2 = state->whoseTurn + 1;
 
-	//Add two smithies to opposing players hand
-    addCardToPlayersHand(state, smithy, 0, player2);
-    addCardToPlayersHand(state, smithy, 1, player2);
+	//Add two smithies to opposing players deck
+	state->deck[player2][state->deckCount[player2]-1] = smithy;
+	state->deck[player2][state->deckCount[player2]-2] = smithy;
     state->numActions = 0;
 
     cardEffect(tribute, 0, 0, 0, state, 1, 0);
