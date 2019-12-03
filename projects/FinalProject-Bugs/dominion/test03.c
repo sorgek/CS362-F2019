@@ -6,42 +6,37 @@
 
 
 int main() {
-
 	int seed = 1000;
 	int currentPlayer = 2;
-
-	//declare the game state
+	int k[10] = { adventurer, council_room, feast, gardens, mine, remodel, ambassador, tribute, baron, minion };
+	// declare the game state
 	struct gameState G;
 
-	// declare the card array
-	int k[10] = { baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room };
-	// set the game state
-	memset(&G, 23, sizeof(struct gameState)); 
+	printf("Bug 03\n");
 
-	// initialize a new game
-	initializeGame(currentPlayer, k, seed, &G); 
+	memset(&G, 23, sizeof(struct gameState)); // set the game state
+	initializeGame(currentPlayer, k, seed, &G); // initialize a new game
 
-	// Set up player 0's card
+	// Set up player 0's hand
 	G.hand[0][0] = remodel;
-	G.hand[0][1] = duchy; 
+	G.hand[0][1] = duchy;
 	G.handCount[0] = 2;
-	// Set player 0's discardCard pile to be empty
-	G.discardCard[0][1] = -1;
-	G.discardCard[0][0] = -1;
-	G.Count[0] = 0;
-	int cost;
+	// Set player 0's discard pile to be empty
+	G.discard[0][1] = -1;
+	G.discard[0][0] = -1;
+	G.discardCount[0] = 0;
+	int coin_bonus;
 
-	printf("start Bug 3\n")
 	// Call cardEffect function
-	cardEffect(remodel, 1, gold, 0, &G, 0, &cost);
+	cardEffect(remodel, 1, gold, 0, &G, 0, &coin_bonus);
 
 	// Assert that one of the cards in the discardCard pile is a silver.
 	
 
-	if (assert(G.discardCard[0][0]) == gold) {
+	if (assert(G.discard[0][0]) == gold) {
 		printf("Passed\n");
 	}
-	else if (assert(G.discardCard[0][1] == gold)) {
+	else if (assert(G.discard[0][1] == gold)) {
 		printf("Passed\n");
 	}
 	else {
