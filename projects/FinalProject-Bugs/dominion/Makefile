@@ -49,9 +49,12 @@ test08: test08.c test_helpers.o dominion.o rngs.o
 test09: test09.c test_helpers.o dominion.o rngs.o
 	gcc -o test09 -g test09.c dominion.o rngs.o test_helpers.o $(CFLAGS)
 
+test10: test10.c test_helpers.o dominion.o rngs.o
+	gcc -o test10 -g test10.c dominion.o rngs.o test_helpers.o $(CFLAGS)
+
 #add rules for test08 - 10 here
 
-unittestresults: test04 test05 test06 test07 test08 test09
+unittestresults: test04 test05 test06 test07 test08 test09 test10
 	#add ./test01 - 03 here
 	./test04 >> unittestresults.out
 	./test05 >> unittestresults.out
@@ -59,6 +62,7 @@ unittestresults: test04 test05 test06 test07 test08 test09
 	./test07 >> unittestresults.out
 	./test08 >> unittestresults.out
 	./test09 >> unittestresults.out
+	./test10 >> unittestresults.out
 
 	gcov -b -f dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
