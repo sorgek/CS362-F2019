@@ -1,6 +1,4 @@
 
-
-
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
@@ -33,7 +31,7 @@ int main() {
 
 	// verify that your asserts pass, for the bugs your asserts may fail
 	// playedCardCount should only go up by 1, which is the mine card being played
-	if (assert(initialPlayedCardCount + 1==G.playedCardCount)) {
+	if (initialPlayedCardCount + 1== G.playedCardCount) {
 		printf("Passed\n");
 	}
 	else {

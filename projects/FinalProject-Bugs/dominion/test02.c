@@ -29,8 +29,8 @@ int main() {
 
 	// Neither of the cards in the player's hand should be gold
 
-	if (assert(G.hand[0][0] != gold)) {
-		if (assert(G.hand[0][1] != gold)) {
+	if (G.hand[0][0] != gold) {
+		if (G.hand[0][1] != gold) {
 			printf("Passed\n");
 		}
 		else {
@@ -38,9 +38,8 @@ int main() {
 		}
 	}
 	else {
-		printf("P\n");
+		printf("Failed\n");
 	}
-
 
 	return 0;
 }
