@@ -29,7 +29,6 @@ player: player.c interface.o
 
 all: playdom player
 
-#add rules for test01 - 03 here
 test01: test01.c dominion.o rngs.o
 	gcc -o test01 -g test01.c dominion.o rngs.o $(CFLAGS)
 
@@ -63,7 +62,6 @@ test10: test10.c test_helpers.o dominion.o rngs.o
 #add rules for test08 - 10 here
 
 unittestresults: test01 test02 test03 test04 test05 test06 test07 test08 test09 test10
-	#add ./test01 - 03 here
 	./test01 >> unittestresults.out
 	./test02 >> unittestresults.out
 	./test03 >> unittestresults.out
