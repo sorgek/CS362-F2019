@@ -34,13 +34,13 @@ int main() {
 	
 
 	if (G.discard[0][0] == gold) {
-		printf("Passed\n");
+		printf("able to trash duchy to gain gold. PASSED\n");
 	}
 	else if (G.discard[0][1] == gold) {
-		printf("Passed\n");
+		printf("able to trash duchy to gain gold. PASSED\n");
 	}
 	else {
-		printf("Failed\n");
+		printf("unable to trash duchy to gain gold. FAILED\n");
 	}
 
 
