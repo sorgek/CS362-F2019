@@ -15,7 +15,7 @@ int main(){
     int seed = 1000;
     int numPlayers = 2;
     struct gameState G, testG;
-    int choice1, choice2, choice3, handPos, bonus;
+    int choice1, choice2, choice3, handPos;
     int card = tribute;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
@@ -26,7 +26,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //call Tribute
-    cardEffect(card, choice1, choice2, choice3, &testG, handPos, bonus);
+    cardEffect(card, choice1, choice2, choice3, &testG, handPos, 0);
 
     //assert test
     printf("Bug 7\n");
