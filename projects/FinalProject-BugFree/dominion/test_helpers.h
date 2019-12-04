@@ -1,4 +1,4 @@
-fndef PROJECTS_TEST_HELPERS_H
+#ifndef PROJECTS_TEST_HELPERS_H
 #define PROJECTS_TEST_HELPERS_H
 
 struct gameState* newTestState();
