@@ -19,11 +19,12 @@ int main(){
     struct gameState *state = newTestState();
     int player2 = state->whoseTurn + 1;
 
-	//Add two smithies to opposing players deck
-	state->deck[player2][state->deckCount[player2]-1] = smithy;
-	state->deck[player2][state->deckCount[player2]-2] = smithy;
-    state->numActions = 0;
+	//Add smithies to opposing players deck
 
+	state->deckCount[player2] = 5;
+	for(int i = 0; i < 5; i ++){
+		state->deck[player2][i] = smithy;
+	}
     cardEffect(tribute, 0, 0, 0, state, 1, 0);
     safeAssert(state->numActions == 2, "When top two cards of opponents deck are smithies, tribute card adds 2 numActions");
     return 0;
