@@ -31,14 +31,14 @@ int main() {
 
 	if (G.hand[0][0] != gold) {
 		if (G.hand[0][1] != gold) {
-			printf("can trash copper and gain gold: PASSED\n");
+			printf("Can trash copper and gain gold: PASSED\n");
 		}
 		else {
-			printf("can't trash copper and gain gold: FAILED\n");
+			printf("Can't trash copper and gain gold: FAILED\n");
 		}
 	}
 	else {
-		printf("can't trash copper and gain gold: FAILED\n");
+		printf("Can't trash copper and gain gold: FAILED\n");
 	}
 
 	return 0;

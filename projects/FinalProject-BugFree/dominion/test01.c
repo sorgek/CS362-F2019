@@ -32,10 +32,10 @@ int main() {
 	// verify that your asserts pass, for the bugs your asserts may fail
 	// playedCardCount should only go up by 1, which is the mine card being played
 	if (initialPlayedCardCount + 1== G.playedCardCount) {
-		printf("the Player's cards increased 1:PASSED\n");
+		printf("The Player's cards increased 1:PASSED\n");
 	}
 	else {
-		printf("the Player's cards not increased 1:FAILED\n");
+		printf("The Player's cards not increased 1:FAILED\n");
 	}
 
 	return 0;
