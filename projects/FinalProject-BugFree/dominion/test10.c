@@ -26,7 +26,7 @@ int main(){
     addSingleCardToHand(state, copper, 2);
 
     //call ambassador to discard 2 coppers with the first at pos 1
-    cardEffect(ambassador, 1, 2, 0, state, 0, 0);
-    safeAssert(state->numActions == 2, "Ambassador card returns 0 when called with 2 cards.");
+
+    safeAssert(cardEffect(ambassador, 1, 2, 0, state, 0, 0) == 0, "Ambassador card returns 0 when called with 2 cards.");
     return 0;
 }
